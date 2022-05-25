@@ -3,12 +3,12 @@ import { BlackBox, Wrapper } from "./styles";
 
 const BaseLayout = ({ title, children }) => {
   return (
-    <Wrapper>
-      <BlackBox>
+    <Wrapper role="root">
+      <BlackBox data-testid="parent">
         <header>
-          <h1>{title ? title : `⌈ Wired Sound For Wired People ⌋`}</h1>
+          <h1>{title ? title : `⌈ Wired Site For Wired People ⌋`}</h1>
         </header>
-        <main>{children}</main>
+        <main data-testid="children">{children}</main>
         <footer>footer</footer>
       </BlackBox>
     </Wrapper>
@@ -23,7 +23,7 @@ BaseLayout.propTypes = {
   ]).isRequired,
 };
 BaseLayout.defaultProps = {
-  title: `⌈ Wired Sound For Wired People ⌋`,
+  title: `⌈ Wired Site For Wired People ⌋`,
 };
 
 export default BaseLayout;
