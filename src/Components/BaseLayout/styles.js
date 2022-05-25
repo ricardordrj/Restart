@@ -8,16 +8,67 @@ const blink = keyframes`
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export const BlackBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: #000;
   width: 80%;
+  height: 80vh;
   padding: 15px;
+  border-radius: 10px;
   box-shadow: #000 0px 5px 10px;
   text-align: center;
   h1 {
     font-size: 3em;
     animation: ${blink} 2s linear infinite;
+  }
+  footer {
+    width: 90%;
+    display: flex;
+    align-self: center;
+    margin-bottom: 2%;
+    nav {
+      background-color: rgba(210, 115, 138, 0.4);
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 9px 4px rgba(210, 115, 138, 0.5);
+      ul {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        a {
+          cursor: pointer;
+          text-decoration: none;
+          color: #c1b492;
+          width: 33%;
+
+          &:link {
+            color: #d2738a;
+          }
+
+          &:visited {
+            color: #d2738a;
+          }
+
+          &:hover {
+            color: #d2738a;
+            animation: ${blink} 1s linear infinite;
+          }
+          &:active {
+            color: #d2738a;
+          }
+        }
+      }
+    }
   }
 `;

@@ -1,12 +1,17 @@
 import { render, screen, cleanup } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import BaseLayout from ".";
 
 const strTitle = "hello world!";
 const BaseLayoutComponent = (str) => (
-  <BaseLayout title={str || null}>
-    <p>children</p>
-  </BaseLayout>
+  <BrowserRouter>
+    <BaseLayout title={str || null}>
+      <p>children</p>
+    </BaseLayout>
+  </BrowserRouter>
 );
+
+beforeAll(() => cleanup);
 
 describe("BaseLayout", () => {
   it("Render title when passed", () => {
