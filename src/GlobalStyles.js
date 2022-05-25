@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import bg_main2 from "./img/bg_main2.gif";
 
 export const GlobalStyles = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -33,6 +34,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-image: url(${bg_main2});
+  	background-color: #d2738a;
+  	color: #c1b492;
 }
 ol, ul {
 	list-style: none;
