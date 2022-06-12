@@ -22,7 +22,7 @@ describe("BaseLayout", () => {
   it("Render default title when not passed", () => {
     render(BaseLayoutComponent());
     expect(
-      screen.getByText("⌈ Wired Site For Wired People ⌋")
+      screen.getByText("⌈ Wired Site For Weird People ⌋")
     ).toBeInTheDocument();
   });
   it("Render children component", () => {

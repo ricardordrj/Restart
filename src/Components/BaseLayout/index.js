@@ -7,7 +7,7 @@ const BaseLayout = ({ title, children }) => {
     <Wrapper role="root">
       <BlackBox data-testid="parent">
         <header>
-          <h1>{title ? title : `⌈ Wired Site For Wired People ⌋`}</h1>
+          <h1>{title ? title : `⌈ Wired Site For Weird People ⌋`}</h1>
         </header>
         <main data-testid="children">{children}</main>
         <footer>
@@ -38,7 +38,7 @@ BaseLayout.propTypes = {
   ]).isRequired,
 };
 BaseLayout.defaultProps = {
-  title: `⌈ Wired Site For Wired People ⌋`,
+  title: `⌈ Wired Site For Weird People ⌋`,
 };
 
 export default BaseLayout;

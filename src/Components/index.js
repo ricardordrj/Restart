@@ -1,3 +1,4 @@
 import BaseLayout from "./BaseLayout";
+import Loading from "./Loading";
 
-export { BaseLayout };
+export { BaseLayout, Loading };
