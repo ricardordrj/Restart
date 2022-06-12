@@ -38,7 +38,7 @@ BaseLayout.propTypes = {
   ]).isRequired,
 };
 BaseLayout.defaultProps = {
-  title: `⌈ Wired Site For Weird People ⌋`,
+  title: `⌈ Weired Site For Weird People ⌋`,
 };
 
 export default BaseLayout;

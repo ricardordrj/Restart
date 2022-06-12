@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+
 const blink = keyframes`
   50% {color:black;}
   50% {color:#d2738a;text-shadow:#d2738a 1px 4px 5px;}

@@ -1,5 +1,5 @@
 import { BaseLayout } from "../../Components";
 
-const Gallery = () => <BaseLayout>Gallery</BaseLayout>;
+const Gallery = () => <BaseLayout>Gallery Page</BaseLayout>;
 
 export default Gallery;
