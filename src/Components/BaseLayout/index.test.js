@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import BaseLayout from ".";
 
@@ -10,8 +10,6 @@ const BaseLayoutComponent = (str) => (
     </BaseLayout>
   </BrowserRouter>
 );
-
-beforeAll(() => cleanup);
 
 describe("BaseLayout", () => {
   it("Render title when passed", () => {
@@ -31,15 +29,13 @@ describe("BaseLayout", () => {
   });
 
   it("Render structure", () => {
-    const { getByRole, getByTestId } = render(BaseLayoutComponent());
-
-    const root = getByRole("root");
-    const parent = getByTestId("parent");
-    const child = getByTestId("children");
+    render(BaseLayoutComponent());
+    const root = screen.getByRole("root");
+    const parent = screen.getByTestId("parent");
+    const child = screen.getByTestId("children");
 
     expect(root).toContainElement(parent);
     expect(parent).toContainElement(child);
-
     expect(child).not.toContainElement(parent);
   });
 });

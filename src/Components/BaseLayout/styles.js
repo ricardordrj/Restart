@@ -10,8 +10,6 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
 `;
 
 export const BlackBox = styled.div`
@@ -21,11 +19,11 @@ export const BlackBox = styled.div`
   justify-content: space-between;
   background-color: #000;
   width: 80%;
-  height: 80vh;
   padding: 15px;
   border-radius: 10px;
   box-shadow: #000 0px 5px 10px;
   text-align: center;
+  margin-top: 15px;
   h1 {
     font-size: 3em;
     animation: ${blink} 2s linear infinite;
