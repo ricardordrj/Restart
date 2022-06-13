@@ -1,44 +1,39 @@
-import { BaseLayout, Card } from "../../Components";
+import { useState, useEffect } from "react";
+import { BaseLayout, Card, Loading } from "../../Components";
 import { Wrapper } from "./styles";
 
+// Mocked data
+import { dataMock } from "./dataMock";
+
 const Gallery = () => {
-  const dataImages = [
-    {
-      name: "teste",
-      url: "/teste",
-    },
-    {
-      name: "teste2",
-      url: "/teste",
-    },
-    {
-      name: "teste3",
-      url: "/teste",
-    },
-    {
-      name: "teste4",
-      url: "/teste",
-    },
-    {
-      name: "teste5",
-      url: "/teste",
-    },
-    {
-      name: "teste6",
-      url: "/teste",
-    },
-  ];
+  const [dataImages, setDataImages] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  const fetchData = () => {
+    setDataImages(dataMock);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchData();
+      setLoading(false);
+    }, 500);
+  }, []);
 
   return (
     <BaseLayout>
       <h3>Image Gallery</h3>
       <Wrapper>
         {dataImages ? (
-          dataImages.map((image) => (
-            <Card key={image.name} title={image.name} url={image.url}>
-              {image.name}
-            </Card>
-          ))
+          isLoading ? (
+            <Loading />
+          ) : (
+            dataImages.map((image) => (
+              <Card key={image.name} title={image.name} url={image.url}>
+                {image.name}
+              </Card>
+            ))
+          )
         ) : (
           <span>Falha ao carregar as imagens</span>
         )}
