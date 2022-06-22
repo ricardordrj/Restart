@@ -15,4 +15,7 @@ describe("Gallery /views", () => {
     render(GalleryView());
     expect(screen.getByText("Image Gallery")).toBeInTheDocument();
   });
+  it("should render gallery cards (Map)", () => {
+    render(GalleryView());
+  });
 });

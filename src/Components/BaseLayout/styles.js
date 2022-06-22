@@ -29,7 +29,8 @@ export const BlackBox = styled.div`
     animation: ${blink} 2s linear infinite;
   }
   footer {
-    width: 90%;
+    width: 80%;
+    position: fixed;
     display: flex;
     align-self: center;
     margin-bottom: 2%;
