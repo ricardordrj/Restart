@@ -19,6 +19,7 @@ export const BlackBox = styled.div`
   justify-content: space-between;
   background-color: #000;
   width: 80%;
+  min-height: 100vh;
   padding: 15px;
   border-radius: 10px;
   box-shadow: #000 0px 5px 10px;
@@ -30,10 +31,9 @@ export const BlackBox = styled.div`
   }
   footer {
     width: 80%;
-    position: fixed;
     display: flex;
-    align-self: center;
     margin-bottom: 2%;
+    margin-top: auto;
     nav {
       background-color: rgba(210, 115, 138, 0.4);
       width: 100%;
