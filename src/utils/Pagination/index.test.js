@@ -60,4 +60,31 @@ describe("Pagination", () => {
     const result = [1, "...", 8, 9, 10, "...", 15];
     expect(pagination(params)).to.be.deep.equal(result);
   });
+  it("pagination({ total: 15}) should return [1, 2, 3, '...', 15 ]", () => {
+    const params = { total: 15 };
+    const result = [1, 2, 3, "...", 15];
+    expect(pagination(params)).to.be.deep.equal(result);
+  });
+  it("pagination() should return [1]", () => {
+    const result = [1];
+    expect(pagination()).to.be.deep.equal(result);
+  });
+  it("pagination({ total: 'abc', activePage: 9}) should throw an error", () => {
+    const params = { total: "abc", activePage: 9 };
+    const result = "Total must be a number";
+    try {
+      pagination(params);
+    } catch (err) {
+      expect(err.message).to.be.equal(result);
+    }
+  });
+  it("pagination({ total: 15, activePage: 'adf'}) should throw an error", () => {
+    const params = { total: 15, activePage: "adf" };
+    const result = "Active page must be a number";
+    try {
+      pagination(params);
+    } catch (err) {
+      expect(err.message).to.be.equal(result);
+    }
+  });
 });

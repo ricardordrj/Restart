@@ -1,4 +1,10 @@
-const pagination = ({ total, activePage }) => {
+const pagination = ({ total = 1, activePage = 1 } = {}) => {
+  if (typeof total !== "number") {
+    throw new TypeError("Total must be a number");
+  }
+  if (typeof activePage !== "number") {
+    throw new TypeError("Active page must be a number");
+  }
   const pages = Array.from({ length: total }, (_, index) => index + 1);
 
   const visiblePages = (arr) => {
