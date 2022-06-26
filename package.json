@@ -45,9 +45,19 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@storybook/addon-centered": "^5.3.21",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.9",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-styled-components": "^2.0.7",
+    "babel-preset-react-app": "^10.0.1",
     "storybook": "^6.5.9",
-    "babel-plugin-styled-components": "^2.0.7"
+    "storybook-addon-styled-component-theme": "^2.0.0"
   }
 }

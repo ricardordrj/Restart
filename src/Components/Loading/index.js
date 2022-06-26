@@ -1,3 +1,4 @@
+import React from "react";
 import { Fragment } from "react";
 import { Overlay, LoadingContent } from "./styles";
 

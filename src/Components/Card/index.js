@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from "prop-types";
 import { Wrapper, CardLink } from "./styles";
 import vglow from "../../img/Vglow.jpg";
