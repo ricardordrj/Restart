@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
 import { BaseLayout, Card, Loading } from "../../Components";
+import { s3 } from "../../utils/Aws";
 import { Wrapper } from "./styles";
 
 // Mocked data
-import { dataMock } from "./dataMock";
 
 const Gallery = () => {
   const [dataImages, setDataImages] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   const fetchData = () => {
-    setDataImages(dataMock);
+    s3.listObjects({ Bucket: process.env.REACT_APP_S3BUCKET }, (err, data) => {
+      if (err) throw err;
+      console.log(data);
+      setDataImages(data.Contents);
+    });
   };
 
   useEffect(() => {
@@ -28,9 +32,13 @@ const Gallery = () => {
           isLoading ? (
             <Loading />
           ) : (
-            dataImages.map((image) => (
-              <Card key={image.name} title={image.name} url={image.url}>
-                {image.name}
+            dataImages.map(({ Key }) => (
+              <Card
+                key={Key}
+                title={Key.replace(".jpg", "")}
+                url={`https://neonrestart.s3.sa-east-1.amazonaws.com/${Key}`}
+              >
+                {Key.replace(".jpg", "")}
               </Card>
             ))
           )

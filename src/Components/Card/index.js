@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 import { Wrapper, CardLink } from "./styles";
-import vglow from "../../img/Vglow.jpg";
 
 const Card = ({ title, url }) => (
   <Wrapper>
-    <CardLink href={url} bgImg={vglow}>
+    <CardLink href={url} bgImg={url}>
       <div>
         <h4>{title}</h4>
       </div>
