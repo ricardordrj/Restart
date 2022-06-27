@@ -18,9 +18,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "test": "react-scripts test --coverage --verbose",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --debug-webpack",
     "build-storybook": "build-storybook"
   },
   "resolutions": {
@@ -47,15 +47,24 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-docs": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-preset-react-app": "^10.0.1",
+    "prop-types": "^15.8.1",
     "storybook": "^6.5.9",
-    "storybook-addon-styled-component-theme": "^2.0.0"
+    "webpack": "^5.73.0"
   }
 }

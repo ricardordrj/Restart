@@ -1,32 +1,25 @@
-const path = require("path");
-
 module.exports = {
-  addons: ["@storybook/preset-create-react-app", "@storybook/addon-postcss"],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/preset-create-react-app",
+  ],
   framework: "@storybook/react",
-  stories: ["../src/**/*.stories.@(js|jsx)"],
   core: {
-    builder: "webpack5",
+    builder: "@storybook/builder-webpack5",
   },
   externals: {
     react: "React",
   },
   webpackFinal: async (config) => {
-    (config.module.rules = [
-      ...config.module.rules,
-      {
-        test: /\.(js|jsx)$/,
-        include: [path.resolve(__dirname, "..")],
-        use: [
-          {
-            loader: require.resolve("babel-loader"),
-            options: {
-              presets: [require.resolve("babel-preset-react-app")],
-            },
-          },
-        ],
-      },
-    ]),
-      config.resolve.extensions.push(".js", ".jsx");
+    const path = require("path");
+    config.resolve.plugins.forEach((p) => {
+      if (Array.isArray(p.appSrcs)) {
+        p.appSrcs.push(path.join(__dirname, "..", "..", "..", "storybook"));
+      }
+    });
     return config;
   },
 };
