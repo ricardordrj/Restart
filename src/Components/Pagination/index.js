@@ -5,11 +5,15 @@ import Page from "./page";
 
 import { ListWrapper, ListItem } from "./styles";
 
-const Pagination = ({ total, activePage, pageLink }) => (
+const Pagination = ({ total, activePage, pageLink, onClick }) => (
   <ListWrapper>
     {pagination({ total, activePage, pageLink }).map((page, index) => (
       <ListItem key={index} active={page === activePage}>
-        <Page page={page} pageLink={`${pageLink}/${page}`} />
+        <Page
+          page={page}
+          pageLink={pageLink ? `${pageLink}/${page}` : "#"}
+          onClick={onClick}
+        />
       </ListItem>
     ))}
   </ListWrapper>
