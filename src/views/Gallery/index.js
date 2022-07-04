@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { BaseLayout, Card, Loading, Pagination } from "../../Components";
 import { s3 } from "../../utils/Aws";
+
+import { BaseLayout, Card, Loading, Pagination } from "../../Components";
 import { Wrapper } from "./styles";
 
 // Mocked data
@@ -8,7 +9,7 @@ import { Wrapper } from "./styles";
 const Gallery = () => {
   const [dataImages, setDataImages] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const [pagination, setPagination] = useState([]);
+  const [nextPage, setNextPage] = useState([]);
 
   const fetchData = (next) => {
     s3.listObjectsV2(
@@ -19,11 +20,9 @@ const Gallery = () => {
       },
       (err, data) => {
         if (err) throw err;
-        console.log(data);
         setDataImages(data.Contents);
         if (data.IsTruncated) {
-          console.log("get further list...");
-          setPagination(data.NextContinuationToken);
+          setNextPage(data.NextContinuationToken);
         }
       }
     );
@@ -48,7 +47,7 @@ const Gallery = () => {
               <Card
                 key={Key}
                 title={Key.replace(".jpg", "")}
-                url={`${process.env.REACT_APP_S3_IMAGE_URL$}${Key}`}
+                url={`${process.env.REACT_APP_S3_IMAGE_URL}${Key}`}
               >
                 {Key.replace(".jpg", "")}
               </Card>
@@ -60,7 +59,7 @@ const Gallery = () => {
         <Pagination
           total={2}
           activePage={1}
-          onClick={() => fetchData(pagination)}
+          onClick={() => fetchData(nextPage)}
         />
       </Wrapper>
     </BaseLayout>

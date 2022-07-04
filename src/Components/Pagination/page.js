@@ -4,7 +4,13 @@ const Page = ({ page, pageLink, onClick }) =>
   page === "..." ? (
     <span>{page}</span>
   ) : (
-    <a href={pageLink ? pageLink : "#"} onClick={(e) => onClick()}>
+    <a
+      href={pageLink ? pageLink : "#"}
+      onClick={(e) => {
+        e.preventDefault();
+        return onClick();
+      }}
+    >
       {page}
     </a>
   );

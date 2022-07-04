@@ -16,12 +16,12 @@ const About = () => {
     <BaseLayout>
       {userInfo ? (
         <section>
-          <img src={userInfo.avatar_url} alt="user image" />
+          <img src={userInfo.avatar_url} alt="avatar do usuário" />
           <h4>{userInfo.name}</h4>
-          <span>login: {userInfo.login}</span>
+          <span>Usuário: {userInfo.login}</span>
         </section>
       ) : (
-        <span>Failed to fetch</span>
+        <span>Falha ao buscar as informações</span>
       )}
     </BaseLayout>
   );
