@@ -1,6 +1,10 @@
 import React from "react";
-import { BaseLayout } from "../../Components";
+import { BaseLayout, MarkdownEditor } from "../../Components";
 
-const Home = () => <BaseLayout />;
+const Home = () => (
+  <BaseLayout>
+    <MarkdownEditor />
+  </BaseLayout>
+);
 
 export default Home;
